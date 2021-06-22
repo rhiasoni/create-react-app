@@ -4,19 +4,19 @@ import './App.css';
 
 const App = () => {
 
-  const APP_ID = '08dc6b87';
-  const APP_KEY = 'e44f6d2524337c04b9e0dc68abe7430a	';
+  const APP_ID = '9e5c7a12';
+  const APP_KEY = '3eef65010362ee7371e28dda6a3bca27';
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('chicken');
+  const [query, setQuery] = useState('');
 
-  useEffect( () => {
+  useEffect(() => {
     getRecipes();
   }, [query]);
 
   const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q={query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
     const data = await response.json();
     setRecipes(data.hits);
     console.log(data.hits);
@@ -24,13 +24,13 @@ const App = () => {
 
   const updateSearch = e => {
     setSearch(e.target.value);
-  };
+  }
 
   const getSearch = e => {
     e.preventDefault();
     setQuery(search);
     setSearch('');
-  }
+  };
 
   return(
     <div className = "App">
