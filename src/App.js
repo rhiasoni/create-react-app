@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import React, {useEffect, useState} from 'react';
 import Recipe from './Recipe';
 import './App.css';
@@ -54,18 +53,5 @@ const App = () => {
     </div>
   );
 }
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-const chokidar = require('chokidar');
-
-// One-liner for current directory
-chokidar.watch('.').on('all', (event, path) => {
-  console.log(event, path);
-});
 
 export default App;
